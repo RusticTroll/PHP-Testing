@@ -19,7 +19,7 @@
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
 	echo "hashed";
 
-	$sani = $db->prepare("INSERT INTO login_data (username, password, email) VALUES (:user, :hashpass, :email)");
+	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (:user, :hashpass, :email)");
 	echo "perpared";
 
 	$sani->bindParam(':user', $usernameInput);
