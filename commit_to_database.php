@@ -17,13 +17,15 @@
 	$emailInput = $_POST["email"];
 
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
+	echo "hashed"
 
 	$sani = $db->prepare("INSERT INTO login_data (username, password, email) VALUES (:user, :hashpass, :email)");
 	$sani->bindParam(':user', $usernameInput);
-	$sani->bindParam(':pass', $passwordInput);
+	$sani->bindParam(':hashpass', $passwordInput);
 	$sani->bindParam(':email', $emailInput);
 
-	$sani->execute();
+	echo "we are here";
+	echo $sani->execute();
 
 	$conn->close();
 
