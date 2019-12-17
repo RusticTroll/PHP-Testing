@@ -19,7 +19,7 @@
 		
 	echo $hashedPass;
 
-	$sani = $db->prepare("INSERT INTO data (Username, Password) VALUES (:user, :hashpass)");
+	$sani = $db->prepare("INSERT INTO login_data (Username, Password) VALUES (:user, :hashpass)");
 	$sani->bindParam(':user', $usernameInput);
 	$sani->bindParam(':pass', $passwordInput);
 
@@ -31,4 +31,6 @@
 	}
 
 	$conn->close();
+
+	header("/PHP-Testing/login.html")
 ?>
