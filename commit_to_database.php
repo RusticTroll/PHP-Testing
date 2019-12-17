@@ -15,7 +15,7 @@
 	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (?, ?, ?)");
 	echo "prepared";
 
-	$sani->bindParam("sss", $usernameInput, $hashedPass, $emailInput);
+	$sani->bind_param("sss", $usernameInput, $hashedPass, $emailInput);
 
 	$usernameInput = $_POST["username"];
 	$passwordInput = $_POST["password"];
