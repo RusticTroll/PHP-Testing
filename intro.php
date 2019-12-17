@@ -7,8 +7,9 @@
 	<body>
 		<form method="post" action="commit_to_database.php">
 			<fieldset title="Create an account">
-				<input type="text" name="username" placeholder="Username">
-				<input type="text" name="password" placeholder="Password">
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="text" name="password" placeholder="Password" required>
+				<input type="email" name="email" placeholder="Email" required>
 				<input type="submit">
 			</fieldset>
 		</form>
