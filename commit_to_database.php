@@ -12,17 +12,17 @@
 	}
 	echo "We did it<br>";
 
+	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (?, ?, ?)");
+	echo "prepared";
+
+	$sani->bindParam("sss", $usernameInput, $hashedPass, $emailInput);
+
 	$usernameInput = $_POST["username"];
 	$passwordInput = $_POST["password"];
 	$emailInput = $_POST["email"];
 
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
-	echo "hashed";
-
-	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (?, ?, ?)");
-	echo "prepared";
-
-	$sani->bindParam("sss", $usernameInput, $hashedPass, $emailInput);
+	echo "hashed";	
 
 	echo "we are here";
 	echo $sani->execute();
