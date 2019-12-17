@@ -16,21 +16,12 @@
 	$passwordInput = $_POST["password"];
 
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
-		
-	echo $hashedPass;
 
 	$sani = $db->prepare("INSERT INTO login_data (Username, Password) VALUES (:user, :hashpass)");
 	$sani->bindParam(':user', $usernameInput);
 	$sani->bindParam(':pass', $passwordInput);
 
-
-	if ($sani->execute() === TRUE) {
-		echo "<br>New record created successfully";
-	} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
-
 	$conn->close();
 
-	header("/PHP-Testing/login.html")
+	header("/PHP-Testing/login.html");
 ?>
