@@ -19,16 +19,12 @@
 		
 	echo $hashedPass;
 
-	if (password_verify($passwordInput, $hashedPass)){
-		echo "<br>This is it, chief!";
-	}
-	else {
-		echo "<br>oh noes";
-	}
+	$sani = $db->prepare("INSERT INTO data (Username, Password) VALUES (:user, :hashpass)");
+	$sani->bindParam(':user', $usernameInput);
+	$sani->bindParam(':pass', $passwordInput);
 
-	$sql = "INSERT INTO data (Username, Password) VALUES ('$usernameInput', '$hashedPass')";
 
-	if ($conn->query($sql) === TRUE) {
+	if ($sani->execute() === TRUE) {
 		echo "<br>New record created successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
