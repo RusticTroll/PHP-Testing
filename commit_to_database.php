@@ -19,12 +19,12 @@
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
 	echo "hashed";
 
-	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (:user, :hashpass, :email)");
+	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (:nam, :hsh, :eml)");
 	echo "perpared";
 
-	$sani->bindParam(':user', $usernameInput);
-	$sani->bindParam(':hashpass', $hashedPass);
-	$sani->bindParam(':email', $emailInput);
+	$sani->bindParam(':nam', $usernameInput);
+	$sani->bindParam(':hsh', $hashedPass);
+	$sani->bindParam(':eml', $emailInput);
 
 	echo "we are here";
 	echo $sani->execute();
