@@ -21,6 +21,8 @@
 	$sani->bindParam(':user', $usernameInput);
 	$sani->bindParam(':pass', $passwordInput);
 
+	$sani->execute();
+
 	$conn->close();
 
 	header("Location: PHP-Testing/login.html");
