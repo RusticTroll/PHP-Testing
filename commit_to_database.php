@@ -23,7 +23,7 @@
 	echo "perpared";
 
 	$sani->bindParam(':user', $usernameInput);
-	$sani->bindParam(':hashpass', $passwordInput);
+	$sani->bindParam(':hashpass', $hashedPass);
 	$sani->bindParam(':email', $emailInput);
 
 	echo "we are here";
