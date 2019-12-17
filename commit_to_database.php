@@ -17,7 +17,7 @@
 	$emailInput = $_POST["email"];
 
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
-	echo "hashed"
+	echo "hashed";
 
 	$sani = $db->prepare("INSERT INTO login_data (username, password, email) VALUES (:user, :hashpass, :email)");
 	$sani->bindParam(':user', $usernameInput);
