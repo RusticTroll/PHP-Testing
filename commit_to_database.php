@@ -23,5 +23,5 @@
 
 	$conn->close();
 
-	header("/PHP-Testing/login.html");
+	header("Location: /PHP-Testing/login.html");
 ?>
