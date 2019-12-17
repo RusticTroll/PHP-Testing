@@ -20,6 +20,8 @@
 	echo "hashed";
 
 	$sani = $db->prepare("INSERT INTO login_data (username, password, email) VALUES (:user, :hashpass, :email)");
+	echo "perpared";
+
 	$sani->bindParam(':user', $usernameInput);
 	$sani->bindParam(':hashpass', $passwordInput);
 	$sani->bindParam(':email', $emailInput);
