@@ -20,10 +20,12 @@
 	echo "hashed";
 
 	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (:nam, :hsh, :eml)");
-	echo "perpared";
+	echo "prepared";
 
 	$sani->bindParam(':nam', $usernameInput);
+	echo "the name is bound";
 	$sani->bindParam(':hsh', $hashedPass);
+	echo "the hash is bound";
 	$sani->bindParam(':eml', $emailInput);
 
 	echo "we are here";
