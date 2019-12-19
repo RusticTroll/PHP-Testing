@@ -22,7 +22,9 @@
 		<div class="row">
 			<div class="col-12 text-center">
 				<?php 
-				$conn 
+				session_start();
+				
+				$_SESSION[]
 				
 				
 				?>
