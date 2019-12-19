@@ -21,8 +21,8 @@
     $userdata = $sanitizer->execute();
 
     if password_verify($password, $userdata){
-		header("Location: /PHP-Testing/messageboard.php");
-		
+		$sanitizer = $conn->prepare("SELECT messageIDHash FROM account_credentials WHERE username = :user");
+		$_SESSION['messageID'] = $conn->query("IF OBJECT_ID('account_credentials', 'u') IS NOT NULL");
 		
 	}
 ?>
