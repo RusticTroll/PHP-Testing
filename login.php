@@ -1,7 +1,8 @@
 <?php
+	session_start();
     $server = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "RgthEpJFq6sQ";
 	$db = "user_info";
 
 	// create connection
@@ -11,11 +12,17 @@
 		die("Connection Failed: " . $conn->connection_error);
     }
     
-    $sanitizer = $db->prepare("SELECT * FROM data WHERE Username = :user");
+    $sanitizer = $conn->prepare("SELECT passwordHash FROM account_credentials WHERE username = :user");
 
     $user = $_POST["username"];
-    $sanitizer->bindParam(':user', $user);
+	$password = $_POST["password"];
+    $sanitizer->bind_param(':user', $user);
 
     $userdata = $sanitizer->execute();
-    echo $userdata;
+
+    if password_verify($password, $userdata){
+		header("Location: /PHP-Testing/messageboard.php");
+		
+		
+	}
 ?>

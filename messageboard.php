@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>Message Board</title>
     <!-- Bootstrap -->
 	<link href="css/bootstrap-4.3.1.css" rel="stylesheet">
 	
@@ -15,16 +15,17 @@
 		<!-- body code goes here -->
 			<div class="col-12">
 				<div class="jumbotron-fluid text-center">
-					<h1>Login</h1>  
+					<h1>Message Board</h1>  
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12 text-center">
-				<form method="POST" action="messageboard.php">
-					<input type="text" name="username" placeholder="Username"><br>
-					<input type="text" name="password" placeholder="Password">
-				</form>
+				<?php 
+				$conn 
+				
+				
+				?>
 			</div>
 		</div>
 	</div>

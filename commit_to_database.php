@@ -1,19 +1,17 @@
 <?php
 	$server = "localhost";
 	$username = "root";
-	$password = "C9zOG2X9HhFwimjx";
+	$password = "RgthEpJFq6sQ";
 	$db = "user_info";
 
 	// create connection
 	$conn = new mysqli($server, $username, $password, $db);
 
 	if ($conn->connect_error) {
-		die("Connection Failed: " . $conn->connection_error);
+		die("Connection Failed");
 	}
-	echo "We did it<br>";
 
-	$sani = $conn->prepare("INSERT INTO login_data (username, password, email) VALUES (?, ?, ?)");
-	echo "prepared";
+	$sani = $conn->prepare("INSERT INTO account_credentials (username, password, email) VALUES (?, ?, ?)");
 
 	$sani->bind_param("sss", $usernameInput, $hashedPass, $emailInput);
 
@@ -22,12 +20,8 @@
 	$emailInput = $_POST["email"];
 
 	$hashedPass = password_hash($passwordInput, PASSWORD_DEFAULT);
-	echo "hashed";	
-
-	echo "we are here";
-	echo $sani->execute();
 
 	$conn->close();
 
-	header("Location: http://3.216.36.237/PHP-Testing/login.html");
+	header("Location: /PHP-Testing/login.html");
 ?>
